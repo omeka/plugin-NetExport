@@ -25,10 +25,10 @@ class NetExport_GenerateJob extends Omeka_JobAbstract
         if(isset($storageOptions) ) {
             $storageOptions = $storageOptions->toArray();
             $storageOptions['adapterOptions']['expiration'] = $minutes;
-            //$storage = Zend_Registry::get('storage');
-            //$storage->setOptions($storageOptions);
-            $storage = new Omeka_Storage($storageOptions);
-            Zend_Registry::set('storage', $storage);
+            $storage = Zend_Registry::get('storage');
+            $storage->setOptions($storageOptions);
+            //$storage = new Omeka_Storage($storageOptions);
+            //Zend_Registry::set('storage', $storage);
             $context->setStorage($storage);
         }
     }
