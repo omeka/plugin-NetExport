@@ -9,8 +9,8 @@ class NetExport_GenerateJob extends Omeka_JobAbstract
             _log("Set memory limit to $memoryLimit");
         }
         //@TODO: figure out this magic when I move to testing on a system that actually has S3.
-       // $this->modifyS3Expiration(10080); //expires in one week
-        $this->modifyS3Expiration(1000); //testing
+        $this->modifyS3Expiration(10080); //expires in one week
+       // $this->modifyS3Expiration(1000); //testing
         $fileId = $this->_options['fileId'];
         $report = $this->_db->getTable('NetExport_File')->find($fileId);
         $generator = $report->getGenerator();
